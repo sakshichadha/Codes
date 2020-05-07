@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        unordered_set<int>s;
+        int nj=J.length();
+        int ns=S.length();
+        for(int i=0;i<nj;i++)
+        {
+            s.insert(J[i]);
+           
+        }
+        int jewels=0;
+        for(int i=0;i<ns;i++)
+        {
+         if(s.find(S[i])!=s.end())
+             jewels++;
+      
+        }
+        return jewels;
+    }
+};
