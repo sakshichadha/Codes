@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int firstUniqChar(string s) {
+        int arr[27];
+        memset(arr,0,sizeof(arr));
+        int n=s.length();
+        for(int i=0;i<n;i++)
+        {
+            char c=s[i];
+            int l=((int)c);
+            l=l-96;
+               
+            if(arr[l]==0)
+                arr[l]=1;
+            else
+                arr[l]=2;
+            
+            
+        }
+        for(int i=0;i<n;i++)
+        { //int x=arr[(int)s[i]-96];
+         char c=s[i];
+            int l=((int)c);
+            l=l-96;
+               int x=arr[l];
+            
+            if(x==1)
+                return i;
+            
+        }
+        return -1;
+    }
+};
