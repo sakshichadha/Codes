@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isPerfectSquare(int num) {
+  long long int left=1;
+        long long int right=num/2;
+        while(left<right)
+        {
+          long long int mid=(right-left)/2+left;
+            if(mid*mid==num)
+                return true;
+            if(mid*mid>num)
+                right=mid;
+            
+             if(mid*mid<num)
+                left=mid+1;
+        }
+        if(left*left==num)
+            return true;
+        return false;
+        
+    }
+};
