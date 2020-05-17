@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int> findAnagrams(string s, string p) {
+        unordered_set<char>se;
+        int mem[27];
+        memset(mem,0,sizeof(mem));
+        for(int i=0;i<p.length();i++)
+            mem[p[i]-'a']++;
+
+        vector<int>ans;
+        int n=p.length();
+        int i=0;
+        while(i+n-1<s.length())
+        {
+           
+         int flag=0;
+            int check[27];
+            memset(check,0,sizeof(check));
+            for(int j=i;j<i+n;j++)
+            {
+                check[s[j]-'a']++;
+            
+            }
+            for(int k=0;k<26;k++)
+            {
+                if(check[k]!=mem[k])
+                {       flag=1;
+                break;
+            }
+                
+                
+            }
+            if(flag==0)
+                ans.push_back(i);
+            
+         i++;   
+        }
+        return ans;
+        
+    }
+};
