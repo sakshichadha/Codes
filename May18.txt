@@ -1,0 +1,45 @@
+class Solution {
+public:
+    bool checkInclusion(string s1, string s2) {
+        int i=0;
+        long long int mod=1e13+7;
+        int base=31;
+        int j=0;
+         long long int hash[26];
+        hash[0]=1;
+        for(int i=1;i<26;i++)
+            hash[i]=(hash[i-1]*base)%mod;
+        int smalln=s1.length();
+        int bign=s2.length();
+        if(bign<smalln)
+            return false;
+        int want=0;
+        for(int i=0;i<26;i++)
+            cout<<hash[i]<<" ";
+        for(int i=0;i<smalln;i++)
+        {
+        want=want+hash[s1[i]-'a'];    
+       
+        }
+        int temp=0;
+        for(int j=0;j<smalln;j++)
+        {cout<<hash[s2[j]-'a']<<endl;
+ temp=temp+hash[s2[j]-'a'];
+           
+        }
+         
+        
+        if(want==temp)
+            return true;
+        for(int i=smalln;i<bign;i++)
+        {
+        temp=temp-hash[s2[i-smalln]-'a'];
+            temp=temp+hash[s2[i]-'a'];
+            if(temp==want)
+                return true;
+       
+        }
+        return false;
+        
+    }
+};
