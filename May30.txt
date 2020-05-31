@@ -1,0 +1,46 @@
+class Solution {
+    static bool cmp(pair<int,pair<int,double>>p1,pair<int,pair<int,double>>p2)
+    {
+   return p1.second.second<p2.second.second;  
+    }
+public:
+    
+    vector<vector<int>> kClosest(vector<vector<int>>& points, int K) {
+        vector<vector<int>>ans;
+        vector<pair<int,pair<int,double>>>v;
+        //x and pair(y,distance);
+        int rows=points.size();
+        int cols=points[0].size();
+        for(int i=0;i<rows;i++)
+        {
+       double distance=sqrt(points[i][1]*points[i][1]+points[i][0]*points[i][0]);
+            pair<int,double>p;
+            p.first=points[i][1];
+            p.second=distance;
+            v.push_back(make_pair(points[i][0],p));
+        }
+            sort(v.begin(),v.end(),cmp);
+            //cout<<v[0].second.second<<endl;
+           for(int i=0;i<v.size();i++)
+           {
+               if(K==0)
+                   break;
+               else
+               {
+                   vector<int>v1;
+                   
+                   v1.push_back(v[i].first);
+                   v1.push_back(v[i].second.first);
+                   ans.push_back(v1);
+                   K--;
+               
+               }
+            
+           
+            
+            
+            
+        }
+        return ans;
+    }
+};
