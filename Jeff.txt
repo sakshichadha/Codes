@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+int n;
+cin>>n;
+int arr[n];
+int five=0;
+int zero=0;
+int max_no=0;
+for(int i=0;i<n;i++)
+{cin>>arr[i];
+if(arr[i]==5)
+five++;
+else
+zero++;
+
+}
+if(zero<=0)
+{
+cout<<"-1"<<endl;
+return 0;
+}
+while(five*5%9!=0)
+{
+five--;
+
+}
+int flag=1;
+while(five--)
+{flag=0;
+    cout<<"5"<<"";
+}
+while(flag==0&&zero--)
+cout<<"0"<<"";
+if(flag==1)
+cout<<"0"<<endl;
+cout<<endl;
+
+
+}
