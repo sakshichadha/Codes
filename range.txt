@@ -1,0 +1,32 @@
+class NumArray {
+public:
+    vector<int>glo;
+    NumArray(vector<int>& nums) {
+        glo=nums;
+    }
+    
+    int sumRange(int i, int j) {
+        int dp[j+1];
+        memset(dp,0,sizeof(dp));
+   dp[0]=glo[0];
+        for(int k=1;k<=j;k++)
+        {
+            //cout<<glo[k]<<"*"<<endl;
+            dp[k]=dp[k-1]+glo[k];
+            //c//out<<dp[k]<<endl;
+        }
+        int ans=0;
+        if(i>=1)
+    ans=dp[j]-dp[i-1];
+        else
+            ans=dp[j];
+        //cout<<ans<<"ans"<<endl;
+        return ans;        
+    }
+};
+
+/**
+ * Your NumArray object will be instantiated and called as such:
+ * NumArray* obj = new NumArray(nums);
+ * int param_1 = obj->sumRange(i,j);
+ */
