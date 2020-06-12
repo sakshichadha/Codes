@@ -1,0 +1,42 @@
+class Solution {
+public:
+    void sortColors(vector<int>& arr) {
+        int i=0;
+        int j=arr.size()-1;
+        int n=arr.size();
+        if(n==0||n==1)
+            return;
+   int zero=0;
+        int mid=0;
+        int two=n-1;
+        while(mid<=two&&zero<two)
+        {
+            if(arr[mid]==0)
+            {
+                //swap with arr[zero];
+                int t=arr[zero];
+                arr[zero]=arr[mid];
+                arr[mid]=t;
+                zero++;
+                mid++;
+                
+                
+            }
+            
+            else if(arr[mid]==2)
+            {
+              int t=arr[two];
+                arr[two]=arr[mid];
+                arr[mid]=t;
+                two--;   
+                
+                
+                
+            }
+            else if(arr[mid]==1)
+                mid++;
+
+            
+        }
+    }
+};
