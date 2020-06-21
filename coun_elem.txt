@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int n,num;
+	    cin>>n>>num;
+	   
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	    cin>>arr[i];
+	   //  if(n==1)
+	   // {
+	   //     if(arr[0]==num)
+	   //     cout<<"1"<<endl;
+	   //     cout<<"0"<<endl;
+	   //     continue;
+	   // }
+	    int first=-1;
+	    int last=-1;
+	    int start=0;
+	    int end=n-1;
+	    while(start<=end)
+	    {
+	        int mid=start+(end-start)/2;
+	        if(arr[mid]==num)
+	        {
+	            first=mid;
+	            end=mid-1;
+	        }
+	        else if(arr[mid]<num)
+	        start=mid+1;
+	        else
+	        end=mid-1;
+	   // cout<<"*"<<start<<" "<<end<<endl;
+	    }
+	   // cout<<"f"<<first<<endl;
+	    start=0;
+	    end=n-1;
+	      while(start<=end)
+	    {
+	        int mid=start+(end-start)/2;
+	        if(arr[mid]==num)
+	        {
+	          last=mid;
+	          start=mid+1;
+	        }
+	        else if(arr[mid]<num)
+	        start=mid+1;
+	        else
+	        end=mid-1;
+	    
+	    }
+	    //cout<<"l"<<last<<endl;
+	if(first!=-1&&last!=-1)
+	cout<<last-first+1<<endl;
+	if(first==-1&&last==-1)
+	cout<<"-1"<<endl;
+// 	if(first==-1)
+// 	cout<<last-<<endl;
+	
+	//if(last==-1)
+	
+	}
+	return 0;
+}
