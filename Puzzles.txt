@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int n,m;
+    cin>>n>>m;
+    int arr[m];
+    for(int i=0;i<m;i++)
+        cin>>arr[i];
+    sort(arr,arr+m);
+    // for(int i=0;i<m;i++)
+    //     cout<<arr[i]<<endl;
+    // cout<<endl;
+    int f=0;
+    int l=n-1;
+    int diff=INT_MAX;
+    diff=min(diff,arr[l]-arr[f]);
+   f++;
+    l=f+n-1;
+  //  cout<<diff<<"#"<<endl;
+    while(l<m&&f<m)
+    {
+        diff=min(diff,arr[l]-arr[f]);
+        f++;
+    l=f+n-1;
+    //cout<<"*"<<diff<<endl;   
+    }
+
+   cout<<diff<<endl;
+}
