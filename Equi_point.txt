@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int n;
+	    cin>>n;
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	    cin>>arr[i];
+	    int dpleft[n];
+	    int dpright[n];
+	    memset(dpleft,0,sizeof(dpleft));
+	    memset(dpright,0,sizeof(dpright));
+	    dpleft[0]=0;
+	    for(int i=1;i<n;i++)
+	    dpleft[i]=dpleft[i-1]+arr[i-1];
+	      dpright[n-1]=0;
+	    for(int i=n-2;i>=0;i--)
+	    dpright[i]=dpright[i+1]+arr[i+1];
+	    int flag=1;
+for(int i=0;i<n;i++)
+{
+    if(dpleft[i]==dpright[i])
+    {
+        cout<<i+1<<endl;
+        flag=0;
+        break;
+    }
+ 
+}
+if(flag==1)
+cout<<"-1"<<endl;
+	}
+	return 0;
+}
