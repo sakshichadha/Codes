@@ -1,0 +1,77 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* removeElements(ListNode* head, int val) {
+        if(head==NULL)
+            return head;
+        if(head->val==val)
+      {
+            head=head->next;
+            if(head==NULL)
+                return head;
+        }
+//         else if(head->val!=val)
+//         {
+        
+//         }
+        ListNode*prev=NULL;
+         ListNode*curr=head;
+         ListNode*next=head->next;
+        while(next!=NULL)
+        {
+            if(curr->val!=val)
+            {if(prev==NULL)
+                head=curr;
+             else
+                prev->next=curr;
+               prev=curr;
+            curr=curr->next; 
+            //curr=next;
+            
+            next=curr->next; 
+             
+             
+            }
+        else  if(curr->val==val)
+         {   if(prev==NULL)
+             head=next;
+           //else
+          //   prev->next=next;
+            // prev=curr;
+            curr=curr->next; 
+            //curr=next;
+            next=curr->next;
+             
+         } 
+         
+        // cout<<prev->val<<" "<<curr->val<<endl;
+        }
+    
+        if(curr->val==val)
+        {  //cout<<"hi";
+            if(prev==NULL)
+                return NULL;
+         else
+           prev->next=NULL; 
+        }
+        else if(curr->val!=val)
+        {
+         if(prev==NULL)
+                return curr;
+         else
+           prev->next=curr;   
+            
+            
+        }
+       return head; 
+    }
+};
