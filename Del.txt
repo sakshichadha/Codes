@@ -1,0 +1,15 @@
+void deleteNode(Node *node)
+{
+   // Your code here
+  Node*t=node;
+  Node*prev=NULL;
+  while(t!=NULL&&t->next!=NULL)
+  {
+   int d=t->data;
+   t->data=t->next->data;
+   t->next->data=d;
+   prev=t;
+   t=t->next; 
+  }
+  prev->next=NULL;
+}
