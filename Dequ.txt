@@ -1,0 +1,56 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	    int n,k;
+	    cin>>n>>k;
+	    
+	    int arr[n];
+	    for(int i=0;i<n;i++)
+	    cin>>arr[i];
+	    int ans=INT_MIN;
+	    int mans=-1;
+	    int m=0;
+	    deque<int>d;
+	  for (int i = 0; i < k; ++i) { 
+        // For every element, the previous smaller elements are useless so 
+        // remove them from Qi 
+        while ((!d.empty()) && arr[i] >= arr[d.back()]) 
+            d.pop_back(); // Remove from rear 
+  
+        // Add new element at rear of queue 
+        d.push_back(i); 
+    } 
+        //cout<<arr[m]<<" ";
+	   // d.push_front(m);
+       // cout<<d.front()<<endl;
+	    for(int i=k;i<n;i++)
+	    {  
+	         cout<<arr[d.front()]<<" ";
+	        //if(!d.empty())
+	       // cout<<"*"<<arr[d.front()]<<endl;
+	        
+	       // cout<<arr[i]<<" "<<i<<endl;
+	    while(!d.empty()&&d.front()<=i-k)
+	    {
+	        d.pop_front();
+            //continue;
+        }
+	    while(!d.empty()&&arr[d.back()]<=arr[i])
+	    {
+	        d.pop_back();
+	    }
+	     d.push_back(i);
+	    
+	    }
+	    cout<<arr[d.front()];
+	    cout<<endl;
+	    
+	}
+	return 0;
+}
