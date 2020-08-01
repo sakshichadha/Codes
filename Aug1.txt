@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+        if(word.empty())
+            return true;
+        int n=word.length();
+        int lower=0;
+        int high=0;
+        if(tolower(word[0])==word[0])
+            lower=1;
+        else
+            high=1;
+        if(high==1&&word.length()>1)
+            {
+              if(tolower(word[1])==word[1])
+                    lower=1;
+                else
+                    high=1;
+                
+            }
+        for(int i=1;i<n;i++)
+        {
+            if(high==1&&i==1)
+                continue;
+          if(lower==1)
+          {
+              if(tolower(word[i])!=word[i])
+                  return false;
+    
+          }
+            else
+            {
+  if(toupper(word[i])!=word[i])
+                  return false;
+                
+            }
+            
+        }
+        return true;
+        
+    }
+};
