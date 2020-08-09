@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	//code
+	int test;
+	cin>>test;
+	while(test--)
+	{
+	  int n;
+	  cin>>n;
+	  int intial=0;
+	  int op=0;
+	  op++;
+	  intial++;
+	  int dp[n+1];
+	  memset(dp,0,sizeof(dp));
+	  dp[0]=0;
+	  dp[1]=1;
+	  dp[2]=2;
+	  dp[3]=3;
+	  for(int i=4;i<=n;i++)
+	  { if(i%2==0)
+	      dp[i]=min(dp[i/2],dp[i-1])+1;
+	      else
+	      dp[i]=min(dp[i/2]+1,dp[i-1])+1;
+ 
+	  }
+cout<<dp[n]<<endl;
+	    
+	}
+	return 0;
+}
