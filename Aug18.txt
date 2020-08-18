@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> distributeCandies(int candies, int num_people) {
+        
+        vector<int>result(num_people,0);
+        int val=1;
+        int in=0;
+        while(candies>0)
+        { if(in==num_people)
+            in=0;
+         if(val<=candies)
+         {  result[in]=result[in]+val;
+            candies=candies-val;
+         }
+         else
+         {
+              result[in]=result[in]+candies;
+             candies=0;
+             break;
+             
+         }
+        val++;
+         in++;
+         
+        }
+        return result;
+    }
+};
