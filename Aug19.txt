@@ -1,0 +1,31 @@
+import java.util.*; 
+class Solution {
+    public String toGoatLatin(String S) {
+        StringTokenizer st=new StringTokenizer(S);
+        String en="a";
+        String result="";
+        while(st.hasMoreTokens())
+        {
+            String s=st.nextToken();
+         
+             if(s.charAt(0)=='a'||s.charAt(0)=='i'||s.charAt(0)=='o'||s.charAt(0)=='u'||s.charAt(0)=='e'||s.charAt(0)=='A'||s.charAt(0)=='I'||s.charAt(0)=='O'||s.charAt(0)=='U'||s.charAt(0)=='E')
+             {   result+=s;
+                 result+="ma";
+              
+             }
+            else
+            {    result+=s.substring(1);
+             result+=s.charAt(0);
+                result+="ma";
+            }
+            result+=en;
+            en+="a";
+            
+            //System.out.println(s);
+            if(st.hasMoreTokens())
+           result+=" "; 
+            
+        }
+        return result;
+    }
+}
