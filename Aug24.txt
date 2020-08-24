@@ -1,0 +1,33 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& A) {
+        if(A.empty())
+            return A;
+        int even=0;
+        int n=A.size();
+        int odd=n-1;
+        int i=0;
+        while(i<n&&even<odd)
+        {
+            if(A[i]%2!=0)
+            {
+                //swap with odd
+            int temp=A[odd];
+                A[odd]=A[i];
+                A[i]=temp;
+            odd--;
+            }
+            if(A[i]%2==0)
+            {
+                
+              int temp=A[even];
+                A[even]=A[i];
+                A[i]=temp;  
+                even++;   
+            }
+          i++;  
+        }
+        
+       return A; 
+    }
+};
